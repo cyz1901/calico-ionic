@@ -5,8 +5,8 @@
   "main": ".js",
   "type": "module",
   "scripts": {
-    "dev": "vite serve ./sandbox",
-    "ionic:serve": "vite serve ./sandbox"
+    "dev": "vite",
+    "ionic:serve": "vite"
   },
   "author": "",
   "license": "ISC",

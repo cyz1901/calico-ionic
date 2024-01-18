@@ -2,7 +2,7 @@ ThisBuild / tlBaseVersion := "0.0"
 
 ThisBuild / organization := "com.cyz1901"
 ThisBuild / organizationName := "cyz1901"
-ThisBuild / startYear := Some(2023)
+ThisBuild / startYear := Some(2024)
 ThisBuild / developers := List(
   tlGitHubDev("cyz1901", "cyz1901"),
 )

@@ -3,7 +3,7 @@ package calico.ionic
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object IonicGlobal {
+private[ionic] object IonicGlobal {
 
   @JSImport("@ionic/core/dist/collection/global/ionic-global.js", JSImport.Namespace)
   @js.native
