@@ -22,4 +22,6 @@ final class IonicTag[F[_], E] private[ionic] (name: String)(using F: Async[F]):
       }
     }
 
-  private def build = F.delay(dom.document.createElement(name).asInstanceOf[E])
+  private def build = F.delay {
+    dom.document.createElement(name).asInstanceOf[E]
+  }

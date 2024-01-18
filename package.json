@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ionic/core": "^7.6.4",
-    "@stencil/core": "^4.10.0"
+    "@ionic/core": "^7.6.4"
   },
   "devDependencies": {
     "vite": "^5.0.11"

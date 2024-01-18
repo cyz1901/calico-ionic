@@ -9,13 +9,13 @@ ThisBuild / developers := List(
 
 ThisBuild / tlSonatypeUseLegacyHost := false
 
-ThisBuild / crossScalaVersions := Seq("3.2.1")
+ThisBuild / crossScalaVersions := Seq("3.3.1")
 ThisBuild / scalacOptions ++= Seq("-new-syntax", "-indent", "-source:future")
 
-ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("21"))
 ThisBuild / tlJdkRelease := Some(8)
 
-val CalicoVersion = "0.2.0-M2"
+val CalicoVersion = "0.2.2"
 
 lazy val root = tlCrossRootProject.aggregate(ionic, sandbox)
 
@@ -31,9 +31,10 @@ lazy val ionic = project
 
 lazy val sandbox = project
   .in(file("sandbox"))
-  .enablePlugins(ScalaJSPlugin, ScalaJSImportMapPlugin, NoPublishPlugin)
+  .enablePlugins(ScalaJSPlugin, NoPublishPlugin)
   .dependsOn(ionic)
   .settings(
+    tlFatalWarnings := false,
     scalaJSUseMainModuleInitializer := true,
     Compile / fastLinkJS / scalaJSLinkerConfig ~= {
       import org.scalajs.linker.interface.ModuleSplitStyle

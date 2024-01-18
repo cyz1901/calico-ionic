@@ -8,9 +8,6 @@ dependencies:
   '@ionic/core':
     specifier: ^7.6.4
     version: registry.npmmirror.com/@ionic/core@7.6.4
-  '@stencil/core':
-    specifier: ^4.10.0
-    version: registry.npmmirror.com/@stencil/core@4.10.0
 
 devDependencies:
   vite:

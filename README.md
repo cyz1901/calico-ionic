@@ -5,6 +5,7 @@
 ### Demo
 
 ```
-$ sbt sandbox/fastLinkJS
-$ python -m http.server # navigate to http://localhost:8000/sandbox/
+$ pnpm i
+$ sbt ~fastLinkJS
+$ pnpm run dev
 ```
