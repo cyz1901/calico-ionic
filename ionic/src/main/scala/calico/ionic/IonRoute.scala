@@ -12,8 +12,6 @@ object HTMLIonRouteElement:
   extension [F[_]](ionRoute: HTMLIonRouteElement[F])
     def url: Prop[F, String, String] = Prop("url", identity)
 
-    def component: Prop[F, String, String] = Prop("component", identity)
-
 @js.native
 @JSImport("@ionic/core/components/ion-route.js", "IonRoute")
 private[ionic] class IonRouteElement extends dom.HTMLElement

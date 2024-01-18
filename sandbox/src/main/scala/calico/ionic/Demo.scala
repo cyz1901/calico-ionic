@@ -44,6 +44,11 @@ object Demo extends IOWebApp {
           )
         },
         ionModal(m => div("kao")),
+        ionRoute(k =>
+          (
+            k.url := "/gugugu",
+          ),
+        ),
       )
 
     // div(

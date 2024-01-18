@@ -9,4 +9,5 @@ sealed class Ionic[F[_]](using Async[F])
     extends IonButton[F],
       IonRoute[F],
       IonRouter[F],
-      IonModal[F]
+      IonModal[F],
+      IonApp[F]
