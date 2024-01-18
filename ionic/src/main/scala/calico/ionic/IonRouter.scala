@@ -19,5 +19,6 @@ private trait IonRouter[F[_]](using F: Async[F]):
         "ion-router",
         HTMLIonRouterElement.use.asInstanceOf[js.Dynamic],
       )
-    HTMLIonRouterElement.use
+    println(HTMLIonRouterElement.use)
+
     IonicTag("ion-router")

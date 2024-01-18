@@ -10,6 +10,7 @@ import cats.syntax.all.*
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom.HTMLElement
+import org.scalajs.dom
 
 @js.native
 @JSImport("styles/index.css", JSImport.Default)
@@ -27,14 +28,22 @@ object Demo extends IOWebApp {
       div(
         "Ionic",
         ionButton { cb =>
-          ("wohu", cb.disabled := true, cb.expand := "full")
-        },
-        ionRoute(p =>
           (
-            p.url := "/",
-            p.component := "page-one",
-          ),
-        ),
+            "wohu",
+            cb.disabled := false,
+            cb.expand := "full",
+            onClick --> {
+              _.foreach(_ =>
+                IO {
+                  val n = dom.document.querySelector("ion-modal")
+                  n.asInstanceOf[js.Dynamic].updateDynamic("isOpen")(true)
+                  println(n.asInstanceOf[js.Dynamic].selectDynamic("isOpen"))
+                },
+              )
+            },
+          )
+        },
+        ionModal(m => div("kao")),
       )
 
     // div(
