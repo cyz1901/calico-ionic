@@ -1,7 +1,7 @@
 ThisBuild / tlBaseVersion := "0.1"
 ThisBuild / tlUntaggedAreSnapshots := true
 
-ThisBuild / organization := "com.cyz1901"
+ThisBuild / organization := "io.github.cyz1901"
 ThisBuild / organizationName := "cyz1901"
 ThisBuild / startYear := Some(2024)
 ThisBuild / developers := List(
