@@ -1,4 +1,5 @@
-ThisBuild / tlBaseVersion := "0.0"
+ThisBuild / tlBaseVersion := "0.0.1"
+ThisBuild / tlUntaggedAreSnapshots := true
 
 ThisBuild / organization := "com.cyz1901"
 ThisBuild / organizationName := "cyz1901"

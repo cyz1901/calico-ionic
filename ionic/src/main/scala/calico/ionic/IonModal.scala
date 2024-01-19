@@ -8,11 +8,6 @@ import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
 
 opaque type HTMLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
-// object HTMLIonModalElement:
-// extension [F[_]](ionModal: HTMLIonModalElement[F])
-//   def disabled: Prop[F, Boolean, Boolean] = Prop("disabled", identity)
-
-//   def expand: Prop[F, String, String] = Prop("expand", identity)
 
 @js.native
 @JSImport("@ionic/core/components/ion-modal.js", "IonModal")
