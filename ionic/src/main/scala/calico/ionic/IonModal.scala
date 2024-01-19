@@ -16,7 +16,6 @@
 
 package calico.ionic
 
-import calico.html.Prop
 import cats.effect.kernel.Async
 
 import scala.scalajs.js

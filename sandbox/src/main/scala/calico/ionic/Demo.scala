@@ -18,14 +18,12 @@ package calico
 package ionic
 
 import calico.html.io.{*, given}
-import calico.ionic.io.{*, given}
+import calico.ionic.io.*
 import cats.effect.*
-import cats.effect.syntax.all.*
 import cats.syntax.all.*
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import org.scalajs.dom.HTMLElement
 import org.scalajs.dom
 
 @js.native
