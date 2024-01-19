@@ -7,6 +7,7 @@ ThisBuild / startYear := Some(2024)
 ThisBuild / developers := List(
   tlGitHubDev("cyz1901", "cyz1901"),
 )
+ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
 
 ThisBuild / tlSonatypeUseLegacyHost := false
 
