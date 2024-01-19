@@ -16,28 +16,24 @@
 
 package calico.ionic
 
-import calico.html.Prop
 import cats.effect.kernel.Async
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
 
-opaque type HTMLIonRouteElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
-object HTMLIonRouteElement:
-  extension [F[_]](ionRoute: HTMLIonRouteElement[F])
-    def url: Prop[F, String, String] = Prop("url", identity)
+opaque type HTMLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
 
 @js.native
-@JSImport("@ionic/core/components/ion-route.js", "IonRoute")
-private[ionic] class IonRouteElement extends dom.HTMLElement
+@JSImport("@ionic/core/components/ion-modal.js", "IonModal")
+private[ionic] class IonModalElement extends dom.HTMLElement
 
-private trait IonRoute[F[_]](using F: Async[F]):
-  lazy val ionRoute: IonicTag[F, HTMLIonRouteElement[F]] =
+private trait IonModal[F[_]](using F: Async[F]):
+  lazy val ionModal: IonicTag[F, HTMLIonModalElement[F]] =
     dom.window.customElements
       .define(
-        "ion-route",
-        js.constructorOf[IonRouteElement],
+        "ion-modal",
+        js.constructorOf[IonModalElement],
       )
-    new IonRouteElement()
-    IonicTag("ion-route")
+    new IonModalElement()
+    IonicTag("ion-modal")

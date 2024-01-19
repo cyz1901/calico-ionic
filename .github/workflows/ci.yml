@@ -9,13 +9,14 @@ name: Continuous Integration
 
 on:
   pull_request:
-    branches: ["**", "!update/**", "!pr/**"]
+    branches: ['**', '!update/**', '!pr/**']
   push:
-    branches: ["**", "!update/**", "!pr/**"]
+    branches: ['**', '!update/**', '!pr/**']
     tags: [v*]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 concurrency:
   group: ${{ github.workflow }} @ ${{ github.ref }}
@@ -75,11 +76,11 @@ jobs:
 
       - name: Make target directories
         if: github.event_name != 'pull_request' && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main')
-        run: mkdir -p material/target project/target
+        run: mkdir -p ionic/target project/target
 
       - name: Compress target directories
         if: github.event_name != 'pull_request' && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main')
-        run: tar cf targets.tar material/target project/target
+        run: tar cf targets.tar ionic/target project/target
 
       - name: Upload target directories
         if: github.event_name != 'pull_request' && (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main')
