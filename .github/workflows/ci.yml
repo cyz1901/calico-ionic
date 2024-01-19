@@ -9,14 +9,13 @@ name: Continuous Integration
 
 on:
   pull_request:
-    branches: ['**', '!update/**', '!pr/**']
+    branches: ["**", "!update/**", "!pr/**"]
   push:
-    branches: ['**', '!update/**', '!pr/**']
+    branches: ["**", "!update/**", "!pr/**"]
     tags: [v*]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
 concurrency:
   group: ${{ github.workflow }} @ ${{ github.ref }}
@@ -149,7 +148,11 @@ jobs:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_CREDENTIAL_HOST: ${{ secrets.SONATYPE_CREDENTIAL_HOST }}
-        run: sbt tlCiRelease
+        run: |
+          echo "$SONATYPE_USERNAME"
+          echo "$SONATYPE_PASSWORD"
+          echo "$SONATYPE_CREDENTIAL_HOST"
+          sbt tlCiRelease
 
   dependency-submission:
     name: Submit Dependencies
