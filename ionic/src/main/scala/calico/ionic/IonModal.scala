@@ -23,17 +23,17 @@ import calico.html.Prop
 
 import org.scalablytyped.runtime.StringDictionary
 import org.scalajs.dom.HTMLElement
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.ComponentProps
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.ComponentRef
-import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.FrameworkDelegate
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
+import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
+import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
+import calico.ionic.scalablyTyped.ionicCore.mod.ComponentProps
+import calico.ionic.scalablyTyped.ionicCore.mod.ComponentRef
+import calico.ionic.scalablyTyped.ionicCore.mod.FrameworkDelegate
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSImport, JSName}

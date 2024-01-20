@@ -36,7 +36,12 @@ lazy val ionic = project
       "@ionic/core" -> "7.6.4",
     ),
     Compile / stMinimize := Selection.AllExcept("@ionic/core"),
-    stOutputPackage := "io.github.cyz1901.ionicTyping",
+    stOutputPackage := "calico.ionic.scalablyTyped",
+    Compile / unmanagedSourceDirectories ++= Seq(
+      file(
+        baseDirectory.value + "/ionic/target/scala-3.3.1/src_managed/main/scalablytyped",
+      ),
+    ),
   )
 
 lazy val sandbox = project
