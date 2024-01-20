@@ -10,6 +10,9 @@ dependencies:
     version: registry.npmmirror.com/@ionic/core@7.6.4
 
 devDependencies:
+  typescript:
+    specifier: ^5.3.3
+    version: registry.npmmirror.com/typescript@5.3.3
   vite:
     specifier: ^5.0.11
     version: registry.npmmirror.com/vite@5.0.11
@@ -541,6 +544,14 @@ packages:
     name: tslib
     version: 2.6.2
     dev: false
+
+  registry.npmmirror.com/typescript@5.3.3:
+    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/typescript/-/typescript-5.3.3.tgz}
+    name: typescript
+    version: 5.3.3
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
 
   registry.npmmirror.com/vite@5.0.11:
     resolution: {integrity: sha512-XBMnDjZcNAw/G1gEiskiM1v6yzM4GE5aMGvhWTlHAYYhxb7S3/V1s3m2LDHa8Vh6yIWYYB0iJwsEaS523c4oYA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-5.0.11.tgz}

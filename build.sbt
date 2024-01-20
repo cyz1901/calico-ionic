@@ -1,4 +1,4 @@
-ThisBuild / tlBaseVersion := "0.1"
+ThisBuild / tlBaseVersion := "0.2"
 ThisBuild / tlUntaggedAreSnapshots := true
 
 ThisBuild / organization := "io.github.cyz1901"
@@ -24,11 +24,15 @@ lazy val root = tlCrossRootProject.aggregate(ionic, sandbox)
 lazy val ionic = project
   .in(file("ionic"))
   .enablePlugins(ScalaJSPlugin)
+  .enablePlugins(ScalablyTypedConverterExternalNpmPlugin) // remove
   .settings(
     name := "calico-ionic",
     libraryDependencies ++= Seq(
       "com.armanbilge" %%% "calico" % CalicoVersion,
     ),
+    externalNpm := {
+      baseDirectory.value.getParentFile
+    },
   )
 
 lazy val sandbox = project
