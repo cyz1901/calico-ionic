@@ -34,18 +34,18 @@ lazy val ionic = project
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     libraryDependencies ++= Seq(
       "com.armanbilge" %%% "calico" % CalicoVersion,
+      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
     ),
     Compile / npmDependencies ++= Seq(
       "@ionic/core" -> "7.6.4",
     ),
     Compile / stMinimize := Selection.AllExcept("@ionic/core"),
-    stOutputPackage := "calico.ionic.scalablyTyped",
-    Compile / unmanagedSourceDirectories ++= Seq(
-      file(
-        baseDirectory.value + "/ionic/target/scala-3.3.1/src_managed/main/scalablytyped",
-      ),
+    stMinimizeKeep ++= List(
+      "ionicCore.^",
     ),
+    stOutputPackage := "calico.ionic.scalablyTyped",
     Compile / doc / sources := Nil,
+    stUseScalaJsDom := true,
   )
 
 lazy val sandbox = project
