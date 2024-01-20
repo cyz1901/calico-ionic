@@ -29,6 +29,7 @@ lazy val ionic = project
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
   .settings(
     name := "calico-ionic",
+    scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     libraryDependencies ++= Seq(
       "com.armanbilge" %%% "calico" % CalicoVersion,
     ),
