@@ -24,15 +24,17 @@ lazy val root = tlCrossRootProject.aggregate(ionic, sandbox)
 lazy val ionic = project
   .in(file("ionic"))
   .enablePlugins(ScalaJSPlugin)
-  .enablePlugins(ScalablyTypedConverterExternalNpmPlugin) // remove
+  .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
   .settings(
     name := "calico-ionic",
     libraryDependencies ++= Seq(
       "com.armanbilge" %%% "calico" % CalicoVersion,
     ),
-    externalNpm := {
-      baseDirectory.value.getParentFile
-    },
+    Compile / npmDependencies ++= Seq(
+      "typescript" -> "5.3.3",
+      "@ionic/core" -> "7.6.4",
+    ),
+    stOutputPackage := "io.github.cyz1901.ionicTyping",
   )
 
 lazy val sandbox = project
