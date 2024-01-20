@@ -1,3 +1,6 @@
+scalacOptions ++= Seq("-Ywarn-unused:imports")
+scalacOptions ++= Seq("-Xmx4G")
+
 ThisBuild / tlBaseVersion := "0.2"
 ThisBuild / tlUntaggedAreSnapshots := true
 
@@ -16,8 +19,6 @@ ThisBuild / scalacOptions ++= Seq("-new-syntax", "-indent", "-source:future")
 
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("21"))
 ThisBuild / tlJdkRelease := Some(8)
-
-scalacOptions ++= Seq("-Xmx4G")
 
 val CalicoVersion = "0.2.2"
 
