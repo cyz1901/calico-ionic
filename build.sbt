@@ -28,6 +28,7 @@ lazy val ionic = project
   .enablePlugins(ScalaJSPlugin)
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
   .settings(
+    tlFatalWarnings := false,
     name := "calico-ionic",
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     libraryDependencies ++= Seq(
