@@ -61,7 +61,7 @@ jobs:
 
       - name: scalaJSLink
         if: matrix.project == 'rootJS'
-        run: sbt 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' Test/scalaJSLinkerResult
+        run: sbt 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' compile
 
       - name: Test
         run: sbt 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' test
