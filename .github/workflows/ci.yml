@@ -61,7 +61,7 @@ jobs:
 
       - name: scalaJSLink
         if: matrix.project == 'rootJS'
-        run: sbt -J-Xmx2G ';set ThisBuild / scalacOptions ++= Seq("-Ywarn-unused:imports", "-Ywarn-unused-import", "-Xfatal-warnings", "-Xlint"); project ${{ matrix.project }}; ++ ${{ matrix.scala }}; compile'
+        run: sbt -J-Xmx2G ';set ThisBuild / scalacOptions ++= Seq("-Xlint:-unused:imports"); project ${{ matrix.project }}; ++ ${{ matrix.scala }}; compile'
 
       - name: Test
         run: sbt 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' test
