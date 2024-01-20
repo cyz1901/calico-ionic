@@ -16,27 +16,12 @@
 
 package calico.ionic
 
+import calico.html.Prop
 import cats.effect.kernel.Async
 
-import org.scalajs.dom
-import calico.html.Prop
-
-import org.scalablytyped.runtime.StringDictionary
-import org.scalajs.dom.HTMLElement
-import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
-import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
-import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
-import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
-import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
-import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
-import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
-import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
-import calico.ionic.scalablyTyped.ionicCore.mod.ComponentProps
-import calico.ionic.scalablyTyped.ionicCore.mod.ComponentRef
-import calico.ionic.scalablyTyped.ionicCore.mod.FrameworkDelegate
-import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
-import scala.scalajs.js.annotation.{JSImport, JSName}
+import scala.scalajs.js.annotation.JSImport
+import org.scalajs.dom
 
 opaque type HtmlLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
 object HtmlLIonModalElement:

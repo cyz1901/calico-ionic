@@ -25,6 +25,8 @@ import cats.syntax.all.*
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
 
 @js.native
 @JSImport("styles/index.css", JSImport.Default)
@@ -41,6 +43,7 @@ object Demo extends IOWebApp {
     ).toResource >>
       div(
         "Ionic",
+        ionHeader(h => ("jjj", h.mode := md)),
         ionButton { cb =>
           (
             "wohu",
@@ -57,11 +60,7 @@ object Demo extends IOWebApp {
             },
           )
         },
-        ionRoute(k =>
-          (
-            k.url := "/gugugu",
-          ),
-        ),
+        ionModal(m => "mama"),
       )
 
     // div(
