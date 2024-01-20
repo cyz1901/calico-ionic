@@ -29,6 +29,7 @@ lazy val ionic = project
   .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
   .settings(
     tlFatalWarnings := false,
+    scalacOptions := "-Wunused:imports",
     name := "calico-ionic",
     scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     libraryDependencies ++= Seq(
@@ -44,6 +45,7 @@ lazy val ionic = project
         baseDirectory.value + "/ionic/target/scala-3.3.1/src_managed/main/scalablytyped",
       ),
     ),
+    Compile / doc / sources := Nil,
   )
 
 lazy val sandbox = project
