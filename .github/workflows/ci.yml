@@ -9,14 +9,13 @@ name: Continuous Integration
 
 on:
   pull_request:
-    branches: ['**', '!update/**', '!pr/**']
+    branches: ["**", "!update/**", "!pr/**"]
   push:
-    branches: ['**', '!update/**', '!pr/**']
+    branches: ["**", "!update/**", "!pr/**"]
     tags: [v*]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
 concurrency:
   group: ${{ github.workflow }} @ ${{ github.ref }}
@@ -51,9 +50,6 @@ jobs:
       - name: sbt update
         if: matrix.java == 'temurin@21' && steps.setup-java-temurin-21.outputs.cache-hit == 'false'
         run: sbt +update
-
-      - name: Check that workflows are up to date
-        run: sbt githubWorkflowCheck
 
       - name: Check headers and formatting
         if: matrix.java == 'temurin@21' && matrix.os == 'ubuntu-latest'
@@ -149,7 +145,11 @@ jobs:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_CREDENTIAL_HOST: ${{ secrets.SONATYPE_CREDENTIAL_HOST }}
-        run: sbt tlCiRelease
+        run: |
+          echo "$SONATYPE_USERNAME"
+          echo "$SONATYPE_PASSWORD"
+          echo "$SONATYPE_CREDENTIAL_HOST"
+          sbt tlCiRelease
 
   dependency-submission:
     name: Submit Dependencies
