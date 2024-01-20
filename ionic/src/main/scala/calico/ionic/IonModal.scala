@@ -23,17 +23,17 @@ import calico.html.Prop
 
 import org.scalablytyped.runtime.StringDictionary
 import org.scalajs.dom.HTMLElement
-import typings.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
-import typings.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
-import typings.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
-import typings.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
-import typings.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
-import typings.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
-import typings.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
-import typings.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
-import typings.ionicCore.mod.ComponentProps
-import typings.ionicCore.mod.ComponentRef
-import typings.ionicCore.mod.FrameworkDelegate
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.ComponentProps
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.ComponentRef
+import io.github.cyz1901.ionicTyping.ionicCore.ionicCore.mod.FrameworkDelegate
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSImport, JSName}

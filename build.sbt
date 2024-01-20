@@ -17,6 +17,8 @@ ThisBuild / scalacOptions ++= Seq("-new-syntax", "-indent", "-source:future")
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("21"))
 ThisBuild / tlJdkRelease := Some(8)
 
+scalacOptions ++= Seq("-Xmx4G")
+
 val CalicoVersion = "0.2.2"
 
 lazy val root = tlCrossRootProject.aggregate(ionic, sandbox)
@@ -31,9 +33,9 @@ lazy val ionic = project
       "com.armanbilge" %%% "calico" % CalicoVersion,
     ),
     Compile / npmDependencies ++= Seq(
-      "typescript" -> "5.3.3",
       "@ionic/core" -> "7.6.4",
     ),
+    Compile / stMinimize := Selection.AllExcept("@ionic/core"),
     stOutputPackage := "io.github.cyz1901.ionicTyping",
   )
 
