@@ -1,5 +1,4 @@
-scalacOptions ++= Seq("-Ywarn-unused:imports")
-scalacOptions ++= Seq("-Xmx4G")
+scalacOptions ++= Seq("-Xmx2G")
 
 ThisBuild / tlBaseVersion := "0.2"
 ThisBuild / tlUntaggedAreSnapshots := true
