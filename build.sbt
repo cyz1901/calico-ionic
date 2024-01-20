@@ -1,4 +1,6 @@
-ThisBuild / tlBaseVersion := "0.1"
+scalacOptions ++= Seq("-Xmx2G")
+
+ThisBuild / tlBaseVersion := "0.2"
 ThisBuild / tlUntaggedAreSnapshots := true
 
 ThisBuild / organization := "io.github.cyz1901"
@@ -24,11 +26,26 @@ lazy val root = tlCrossRootProject.aggregate(ionic, sandbox)
 lazy val ionic = project
   .in(file("ionic"))
   .enablePlugins(ScalaJSPlugin)
+  .enablePlugins(ScalablyTypedConverterGenSourcePlugin)
   .settings(
+    tlFatalWarnings := false,
+    scalacOptions := scalacOptions.value.filterNot(_ == "-Wunused:imports"),
     name := "calico-ionic",
+    scalaJSLinkerConfig ~= (_.withSourceMap(false)),
     libraryDependencies ++= Seq(
       "com.armanbilge" %%% "calico" % CalicoVersion,
+      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
     ),
+    Compile / npmDependencies ++= Seq(
+      "@ionic/core" -> "7.6.4",
+    ),
+    Compile / stMinimize := Selection.AllExcept("@ionic/core"),
+    stMinimizeKeep ++= List(
+      "ionicCore.^",
+    ),
+    stOutputPackage := "calico.ionic.scalablyTyped",
+    Compile / doc / sources := Nil,
+    stUseScalaJsDom := true,
   )
 
 lazy val sandbox = project

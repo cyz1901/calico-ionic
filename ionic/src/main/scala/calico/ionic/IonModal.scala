@@ -18,18 +18,43 @@ package calico.ionic
 
 import cats.effect.kernel.Async
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
+import calico.html.Prop
 
-opaque type HTMLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
+import org.scalablytyped.runtime.StringDictionary
+import org.scalajs.dom.HTMLElement
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.global.HTMLIonModalElement
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalBreakpointChangeEventDetail
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
+import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.ComponentInterface
+import calico.ionic.scalablyTyped.ionicCore.distTypesStencilPublicRuntimeMod.EventEmitter
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsAnimationAnimationInterfaceMod.Animation
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayEventDetail
+import calico.ionic.scalablyTyped.ionicCore.distTypesUtilsOverlaysInterfaceMod.OverlayInterface
+import calico.ionic.scalablyTyped.ionicCore.mod.ComponentProps
+import calico.ionic.scalablyTyped.ionicCore.mod.ComponentRef
+import calico.ionic.scalablyTyped.ionicCore.mod.FrameworkDelegate
+import org.scalablytyped.runtime.StObject
+import scala.scalajs.js
+import scala.scalajs.js.annotation.{JSImport, JSName}
+
+opaque type HtmlLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
+object HtmlLIonModalElement:
+  extension [F[_]](ionModal: HtmlLIonModalElement[F])
+    def animated: Prop[F, Boolean, Boolean] = Prop("animated", identity)
+
+    def backdropBreakpoint: Prop[F, Int, Int] = Prop("backdrop-breakpoint", identity)
+
+    def backdropDismiss: Prop[F, Boolean, Boolean] = Prop("backdrop-dismiss", identity)
 
 @js.native
 @JSImport("@ionic/core/components/ion-modal.js", "IonModal")
-private[ionic] class IonModalElement extends dom.HTMLElement
+private[ionic] class IonModalElement
+    extends dom.HTMLElement
+    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonModal
 
 private trait IonModal[F[_]](using F: Async[F]):
-  lazy val ionModal: IonicTag[F, HTMLIonModalElement[F]] =
+  lazy val ionModal: IonicTag[F, HtmlLIonModalElement[F]] =
     dom.window.customElements
       .define(
         "ion-modal",
