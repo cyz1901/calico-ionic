@@ -64,7 +64,7 @@ jobs:
         run: sbt -J-Xmx2G 'project ${{ matrix.project }}; ++ ${{ matrix.scala }}; compile'
 
       - name: Test
-        run: sbt 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' test
+        run: sbt -J-Xmx2G 'project ${{ matrix.project }}' '++ ${{ matrix.scala }}' test
 
       - name: Check binary compatibility
         if: matrix.java == 'temurin@21' && matrix.os == 'ubuntu-latest'
