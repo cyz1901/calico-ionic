@@ -1,6 +1,6 @@
 scalacOptions ++= Seq("-Xmx2G")
 
-ThisBuild / tlBaseVersion := "0.3"
+ThisBuild / tlBaseVersion := "0.4"
 ThisBuild / tlUntaggedAreSnapshots := true
 
 ThisBuild / organization := "io.github.cyz1901"
