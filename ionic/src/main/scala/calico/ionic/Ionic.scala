@@ -23,8 +23,11 @@ object io extends Ionic[IO]
 
 sealed class Ionic[F[_]](using Async[F])
     extends IonButton[F],
+      IonButtons[F],
+      IonToolbar[F],
       IonRoute[F],
       IonRouter[F],
       IonModal[F],
       IonHeader[F],
+      IonContent[F],
       IonApp[F]

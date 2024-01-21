@@ -22,30 +22,22 @@ import cats.effect.kernel.Async
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import scala.scalajs.js.Promise
 
-opaque type HTMLIonAppElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
-object HTMLIonAppElement:
-  extension [F[_]](ionApp: HTMLIonAppElement[F])
-    def url: Prop[F, String, String] = Prop("url", identity)
+opaque type HTMLIonButtonsElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
+object HTMLIonButtonsElement:
+  extension [F[_]](ionButtons: HTMLIonButtonsElement[F])
+    def collapse: Prop[F, Boolean, Boolean] = Prop("collapse", identity)
 
 @js.native
-@JSImport("@ionic/core/components/ion-app.js", "IonApp")
-private[ionic] class IonAppElement
-    extends dom.HTMLElement
-    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonApp {
+@JSImport("@ionic/core/components/ion-buttons.js", "IonButtons")
+private[ionic] class IonButtonsElement extends dom.HTMLElement
 
-  def setFocus(elements: js.Array[HTMLElement]): Promise[Unit] = js.native
-
-}
-
-private trait IonApp[F[_]](using F: Async[F]):
-  lazy val ionApp: IonicTag[F, HTMLIonAppElement[F]] =
+private trait IonButtons[F[_]](using F: Async[F]):
+  lazy val ionButtons: IonicTag[F, HTMLIonButtonsElement[F]] =
     dom.window.customElements
       .define(
-        "ion-app",
-        js.constructorOf[IonAppElement],
+        "ion-buttons",
+        js.constructorOf[IonButtonsElement],
       )
-    new IonAppElement()
-    IonicTag("ion-app")
+    new IonButtonsElement()
+    IonicTag("ion-buttons")

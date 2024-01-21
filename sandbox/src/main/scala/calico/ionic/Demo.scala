@@ -41,68 +41,38 @@ object Demo extends IOWebApp {
       // org.scalajs.dom.window.customElements
       //   .define("page-one", js.constructorOf[PageOne]),
     ).toResource >>
-      div(
-        "Ionic",
-        ionHeader(h => ("jjj", h.mode := md)),
-        ionButton { cb =>
-          (
-            "wohu",
-            cb.disabled := false,
-            cb.expand := "full",
-            onClick --> {
-              _.foreach(_ =>
-                IO {
-                  val n = dom.document.querySelector("ion-modal")
-                  n.asInstanceOf[js.Dynamic].updateDynamic("isOpen")(true)
-                  println(n.asInstanceOf[js.Dynamic].selectDynamic("isOpen"))
-                },
-              )
-            },
-          )
-        },
-        ionModal(m => "mama"),
+      ionContent(_ =>
+        (
+          cls := "ion-padding",
+          ionButton { cb =>
+            (
+              "open",
+              cb.disabled := false,
+              onClick --> {
+                _.foreach(_ =>
+                  IO {
+                    val n = dom.document.querySelector("ion-modal")
+                    n.asInstanceOf[js.Dynamic].updateDynamic("isOpen")(true)
+                    println(n.asInstanceOf[js.Dynamic].selectDynamic("isOpen"))
+                  },
+                )
+              },
+            )
+          },
+          ionModal(m =>
+            (
+              "mamak",
+              ionHeader(_ =>
+                ionToolbar(_ =>
+                  ionButtons(_ => (ionButton(_ => "cancel"), ionButton(_ => "confirm"))),
+                ),
+              ),
+              ionContent(content => ("aaa", cls := "ion-padding")),
+            ),
+          ),
+        ),
       )
 
-    // div(
-    //   // ionRouter(cb =>
-    //   ionRoute(p =>
-    //     (
-    //       p.url := "/",
-    //       p.component := "page-one",
-    //     ),
-    //   ),
-    //   // ),
-    // )
-
-    // div(()).evalTap(
-    //   _.innerHtml.set(
-    //     """
-    //   <ion-router>
-    //     <ion-route url="/" component="page-one"></ion-route>
-    //   </ion-router>
-    //     """,
-    //   ),
-    // )
-
-    // test two
-    // div(
-    //   ionRouter(cb =>
-    //     ionRoute(p =>
-    //       (
-    //         p.url := "/",
-    //         p.component := "page-one",
-    //       ),
-    //     ),
-    //   ),
-    // )
-
-    // test one
-    // div(
-    //   "Ionic",
-    //   ionButton { cb =>
-    //     ("wohu", cb.disabled := true)
-    //   },
-    // )
 }
 
 // class PageOne extends HTMLElement {
