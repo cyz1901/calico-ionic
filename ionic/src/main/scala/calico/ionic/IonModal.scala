@@ -22,6 +22,9 @@ import cats.effect.kernel.Async
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsModalModalInterfaceMod.ModalHandleBehavior
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
 
 opaque type HtmlLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
 object HtmlLIonModalElement:
@@ -31,6 +34,33 @@ object HtmlLIonModalElement:
     def backdropBreakpoint: Prop[F, Int, Int] = Prop("backdrop-breakpoint", identity)
 
     def backdropDismiss: Prop[F, Boolean, Boolean] = Prop("backdrop-dismiss", identity)
+
+    def canDismiss: Prop[
+      F,
+      Boolean | (js.Function2[js.UndefOr[Any], js.UndefOr[String], js.Promise[Boolean]]),
+      Boolean | (js.Function2[js.UndefOr[Any], js.UndefOr[String], js.Promise[Boolean]]),
+    ] = Prop("can-dismiss", identity)
+
+    def handle: Prop[F, js.UndefOr[Boolean], js.UndefOr[Boolean]] = Prop("handle", identity)
+
+    def handleBehavior
+        : Prop[F, js.UndefOr[ModalHandleBehavior], js.UndefOr[ModalHandleBehavior]] =
+      Prop("handle-behavior", identity)
+
+    def initialBreakpoint: Prop[F, js.UndefOr[Double], js.UndefOr[Double]] =
+      Prop("initial-breakpoint", identity)
+
+    def isOpen: Prop[F, Boolean, Boolean] = Prop("is-open", identity)
+
+    def keepContentsMounted: Prop[F, Boolean, Boolean] = Prop("keep-contents-mounted", identity)
+
+    def keyboardClose: Prop[F, Boolean, Boolean] = Prop("keyboard-close", identity)
+
+    def mode: Prop[F, js.UndefOr[ios | md], js.UndefOr[ios | md]] = Prop("mode", identity)
+
+    def showBackdrop: Prop[F, Boolean, Boolean] = Prop("show-backdrop", identity)
+
+    def trigger: Prop[F, js.UndefOr[String], js.UndefOr[String]] = Prop("trigger", identity)
 
 @js.native
 @JSImport("@ionic/core/components/ion-modal.js", "IonModal")
