@@ -25,10 +25,20 @@ import cats.syntax.all.*
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ionRender
 
 @js.native
 @JSImport("styles/index.css", JSImport.Default)
 object IndexCss extends js.Object
+
+class PageOne extends dom.HTMLElement {
+  def connectedCallback() =
+    ionContent { _ =>
+      "PageOne"
+    }
+}
 
 object Demo extends IOWebApp {
   val indexCss: IndexCss.type = IndexCss
@@ -36,79 +46,19 @@ object Demo extends IOWebApp {
   def render =
     IO(
       IonicUI.initialize(),
-      // org.scalajs.dom.window.customElements
-      //   .define("page-one", js.constructorOf[PageOne]),
-    ).toResource >>
-      div(
-        "Ionic",
-        ionButton { cb =>
-          (
-            "wohu",
-            cb.disabled := false,
-            cb.expand := "full",
-            onClick --> {
-              _.foreach(_ =>
-                IO {
-                  val n = dom.document.querySelector("ion-modal")
-                  n.asInstanceOf[js.Dynamic].updateDynamic("isOpen")(true)
-                  println(n.asInstanceOf[js.Dynamic].selectDynamic("isOpen"))
-                },
-              )
-            },
-          )
-        },
-        ionRoute(k =>
-          (
-            k.url := "/gugugu",
+      org.scalajs.dom.window.customElements
+        .define("page-one", js.constructorOf[PageOne]),
+    ).toResource >> ionApp(_ =>
+      (
+        ionRouter(_ => ()).evalTap(
+          _.innerHtml.set(
+            """
+          <ion-route url="/root" component="page-one"></ion-route>
+          """,
           ),
         ),
-      )
+        ionRouterOutlet(_ => ""),
+      ),
+    )
 
-    // div(
-    //   // ionRouter(cb =>
-    //   ionRoute(p =>
-    //     (
-    //       p.url := "/",
-    //       p.component := "page-one",
-    //     ),
-    //   ),
-    //   // ),
-    // )
-
-    // div(()).evalTap(
-    //   _.innerHtml.set(
-    //     """
-    //   <ion-router>
-    //     <ion-route url="/" component="page-one"></ion-route>
-    //   </ion-router>
-    //     """,
-    //   ),
-    // )
-
-    // test two
-    // div(
-    //   ionRouter(cb =>
-    //     ionRoute(p =>
-    //       (
-    //         p.url := "/",
-    //         p.component := "page-one",
-    //       ),
-    //     ),
-    //   ),
-    // )
-
-    // test one
-    // div(
-    //   "Ionic",
-    //   ionButton { cb =>
-    //     ("wohu", cb.disabled := true)
-    //   },
-    // )
 }
-
-// class PageOne extends HTMLElement {
-//   def connectedCallback() =
-//     ionButton { cb =>
-//       ("PageOne", cb.disabled := false)
-//     }
-// }

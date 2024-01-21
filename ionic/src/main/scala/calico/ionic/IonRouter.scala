@@ -16,6 +16,7 @@
 
 package calico.ionic
 
+import calico.html.Prop
 import cats.effect.kernel.Async
 
 import scala.scalajs.js
@@ -24,17 +25,24 @@ import org.scalajs.dom
 
 opaque type HTMLIonRouterElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
 object HTMLIonRouterElement:
-  @js.native
-  @JSImport("@ionic/core/components/ion-router.js", "IonRouter")
-  private[ionic] def use: dom.HTMLElement = js.native
+  extension [F[_]](ionRoute: HTMLIonRouteElement[F])
+    def root: Prop[F, String, String] = Prop("url", identity)
+
+    def useHash: Prop[F, String, String] = Prop("use-hash", identity)
+
+@js.native
+@JSImport("@ionic/core/components/ion-router.js", "IonRouter")
+private[ionic] class IonRouterElement
+    extends dom.HTMLElement
+    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonRouter
 
 private trait IonRouter[F[_]](using F: Async[F]):
   lazy val ionRouter: IonicTag[F, HTMLIonRouterElement[F]] =
     dom.window.customElements
       .define(
         "ion-router",
-        HTMLIonRouterElement.use.asInstanceOf[js.Dynamic],
+        js.constructorOf[IonRouterElement],
       )
-    println(HTMLIonRouterElement.use)
+    new IonRouterElement()
 
     IonicTag("ion-router")

@@ -23,16 +23,24 @@ import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
 import calico.html.Prop
 
+import calico.ionic.scalablyTyped.ionicCore.distTypesComponentsNavNavInterfaceMod.NavComponent
+
 opaque type HTMLIonNavElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
 object HTMLIonNavElement:
   extension [F[_]](ionNav: HTMLIonNavElement[F])
     def animated: Prop[F, Boolean, Boolean] = Prop("animated", identity)
 
-    def animation: Prop[F, js.Dynamic, js.Dynamic] = Prop("animation", identity)
+    def root: Prop[F, js.UndefOr[NavComponent], js.UndefOr[NavComponent]] =
+      Prop("root", identity)
+
+    def swipeGesture: Prop[F, js.UndefOr[Boolean], js.UndefOr[Boolean]] =
+      Prop("swipe-gesture", identity)
 
 @js.native
 @JSImport("@ionic/core/components/ion-nav.js", "IonNav")
-private[ionic] class IonNavElement extends dom.HTMLElement
+private[ionic] class IonNavElement
+    extends dom.HTMLElement
+    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonNav {}
 
 private trait IonNav[F[_]](using F: Async[F]):
   lazy val ionNav: IonicTag[F, HTMLIonNavElement[F]] =

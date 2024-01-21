@@ -22,28 +22,28 @@ import cats.effect.kernel.Async
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
 
-opaque type HtmlLIonModalElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
-object HtmlLIonModalElement:
-  extension [F[_]](ionModal: HtmlLIonModalElement[F])
+opaque type HTMLIonRouterOutletElement[F[_]] <: fs2.dom.HtmlElement[F] = fs2.dom.HtmlElement[F]
+object HTMLIonRouterOutletElement:
+  extension [F[_]](ionRouterOutlet: HTMLIonRouterOutletElement[F])
     def animated: Prop[F, Boolean, Boolean] = Prop("animated", identity)
 
-    def backdropBreakpoint: Prop[F, Int, Int] = Prop("backdrop-breakpoint", identity)
-
-    def backdropDismiss: Prop[F, Boolean, Boolean] = Prop("backdrop-dismiss", identity)
+    def mode: Prop[F, js.UndefOr[ios | md], js.UndefOr[ios | md]] = Prop("mode", identity)
 
 @js.native
-@JSImport("@ionic/core/components/ion-modal.js", "IonModal")
-private[ionic] class IonModalElement
+@JSImport("@ionic/core/components/ion-router-outlet.js", "IonRouterOutlet")
+private[ionic] class IonRouterOutletElement
     extends dom.HTMLElement
-    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonModal
+    with calico.ionic.scalablyTyped.ionicCore.distTypesComponentsMod.Components.IonRouterOutlet {}
 
-private trait IonModal[F[_]](using F: Async[F]):
-  lazy val ionModal: IonicTag[F, HtmlLIonModalElement[F]] =
+private trait IonRouterOutlet[F[_]](using F: Async[F]):
+  lazy val ionRouterOutlet: IonicTag[F, HTMLIonRouterOutletElement[F]] =
     dom.window.customElements
       .define(
-        "ion-modal",
-        js.constructorOf[IonModalElement],
+        "ion-router-outlet",
+        js.constructorOf[IonRouterOutletElement],
       )
-    new IonModalElement()
-    IonicTag("ion-modal")
+    new IonRouterOutletElement()
+    IonicTag("ion-router-outlet")
