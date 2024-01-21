@@ -27,10 +27,18 @@ import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
 import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
 import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
+import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ionRender
 
 @js.native
 @JSImport("styles/index.css", JSImport.Default)
 object IndexCss extends js.Object
+
+class PageOne extends dom.HTMLElement {
+  def connectedCallback() =
+    ionContent { _ =>
+      "PageOne"
+    }
+}
 
 object Demo extends IOWebApp {
   val indexCss: IndexCss.type = IndexCss
@@ -38,46 +46,19 @@ object Demo extends IOWebApp {
   def render =
     IO(
       IonicUI.initialize(),
-      // org.scalajs.dom.window.customElements
-      //   .define("page-one", js.constructorOf[PageOne]),
-    ).toResource >>
-      ionContent(_ =>
-        (
-          cls := "ion-padding",
-          ionButton { cb =>
-            (
-              "open",
-              cb.disabled := false,
-              onClick --> {
-                _.foreach(_ =>
-                  IO {
-                    val n = dom.document.querySelector("ion-modal")
-                    n.asInstanceOf[js.Dynamic].updateDynamic("isOpen")(true)
-                    println(n.asInstanceOf[js.Dynamic].selectDynamic("isOpen"))
-                  },
-                )
-              },
-            )
-          },
-          ionModal(m =>
-            (
-              "mamak",
-              ionHeader(_ =>
-                ionToolbar(_ =>
-                  ionButtons(_ => (ionButton(_ => "cancel"), ionButton(_ => "confirm"))),
-                ),
-              ),
-              ionContent(content => ("aaa", cls := "ion-padding")),
-            ),
+      org.scalajs.dom.window.customElements
+        .define("page-one", js.constructorOf[PageOne]),
+    ).toResource >> ionApp(_ =>
+      (
+        ionRouter(_ => ()).evalTap(
+          _.innerHtml.set(
+            """
+          <ion-route url="/root" component="page-one"></ion-route>
+          """,
           ),
         ),
-      )
+        ionRouterOutlet(_ => ""),
+      ),
+    )
 
 }
-
-// class PageOne extends HTMLElement {
-//   def connectedCallback() =
-//     ionButton { cb =>
-//       ("PageOne", cb.disabled := false)
-//     }
-// }

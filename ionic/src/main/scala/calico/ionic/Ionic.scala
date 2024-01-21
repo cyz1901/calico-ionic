@@ -27,7 +27,9 @@ sealed class Ionic[F[_]](using Async[F])
       IonToolbar[F],
       IonRoute[F],
       IonRouter[F],
+      IonRouterOutlet[F],
       IonModal[F],
       IonHeader[F],
       IonContent[F],
+      IonNav[F],
       IonApp[F]
