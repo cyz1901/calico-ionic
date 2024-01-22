@@ -25,9 +25,6 @@ import cats.syntax.all.*
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import org.scalajs.dom
-import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ios
-import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.md
-import calico.ionic.scalablyTyped.ionicCore.ionicCoreStrings.ionRender
 
 @js.native
 @JSImport("styles/index.css", JSImport.Default)
@@ -45,19 +42,12 @@ object Demo extends IOWebApp {
 
   def render =
     IO(
-      IonicUI.initialize(),
+      initialize(),
       org.scalajs.dom.window.customElements
         .define("page-one", js.constructorOf[PageOne]),
     ).toResource >> ionApp(_ =>
       (
-        ionRouter(_ => ()).evalTap(
-          _.innerHtml.set(
-            """
-          <ion-route url="/root" component="page-one"></ion-route>
-          """,
-          ),
-        ),
-        ionRouterOutlet(_ => ""),
+        ionHeader(_ => ionTitle(_ => div("hahahha")))
       ),
     )
 

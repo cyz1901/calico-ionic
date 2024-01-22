@@ -18,13 +18,22 @@ package calico.ionic
 
 import cats.effect.IO
 import cats.effect.kernel.Async
+import org.scalajs.dom
 
-object io extends Ionic[IO]
+object io extends Ionic[IO] {
+
+  def initialize(): Unit =
+    dom.document.documentElement.classList.add("ion-ce")
+    IonicGlobal.initialize()
+}
 
 sealed class Ionic[F[_]](using Async[F])
     extends IonButton[F],
       IonButtons[F],
+      IonSegmentButton[F],
+      IonSegment[F],
       IonToolbar[F],
+      IonTitle[F],
       IonRoute[F],
       IonRouter[F],
       IonRouterOutlet[F],
